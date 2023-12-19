@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+
+User-agent: Googlebot-Image
+Disallow: 
+
+Allow: ./favicon2.png
+
+Sitemap: https://cisearchi.com/sitemap.xml
