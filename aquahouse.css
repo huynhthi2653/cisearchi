@@ -111,18 +111,19 @@ header.sticky a{
     justify-content: space-between;
     /* flex-direction: column; */
 }
-.contenBx h3
-{
-    font-size: 24px;
+.title{
+    font-size: 22px;
     margin-bottom:10px;
 }
 .contentBx{
     text-align: justify;
     margin: 0 20px;
+    width: 20%;
 }
 
 .w50{
     min-width: 50%;
+    width: 80%;
 }
 .w50 img{
     max-width: 100%;
@@ -337,17 +338,18 @@ section
 {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
 }
-.contenBx h3
+.title
 {
-    font-size: 24px;
+    font-size: 8px;
     margin-bottom:10px;
 }
 .contentBx{
     text-align: justify;
     margin: 0 20px;
+    font-size: 6px;
 }
 
 .w50{
@@ -355,7 +357,6 @@ section
 }
 .w50 img{
     margin-top:10px;
-    max-width: 00%;
     border-radius:  8px ;
 
     
@@ -468,15 +469,16 @@ footer{
         justify-content: space-between;
         /* flex-direction: column; */
     }
-    .contenBx h3
+    .title
     {
-        font-size: 24px;
+        font-size: 23px;
         margin-bottom:10px;
     }
     .contentBx{
         text-align: justify;
         margin: 0 20px;
-        min-width: 40%;
+        /* min-width: 40%; */
+        font-size: 13px;
     }
     
     .w50{
