@@ -65,27 +65,29 @@
             <h3>CISẺ ARCHITECTS</h3> </div>
             <a href="#project" class="btnclass">Projects</a>
         </div>
-        
+        <video autoplay muted loop id="background-video">
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </section>
-    <div id="preload" style="display: none;">
-        <img src="./item1/1.webp">
-        <img src="./item1/2.jpg">
-        <img src="./item1/3.webp">
-        <img src="./item1/4.webp">
-        <img src="./item1/5.jpg">
-        <img src="./item1/6.webp">
-        <img src="./item1/7.jpg">
-        <img src="./item1/8.jpg">
-        <img src="./item1/9.webp">
-        <img src="./item1/10.jpg">
-        <img src="./item1/11.webp">
-
-
-    </div>
     <style>
-        #preload {
-    display: none;
+        .banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 
     </style>
     <div id="container">
@@ -107,7 +109,16 @@
           </div>
           <div id="New" class="tabcontent">
             <div class="noidungwork">
-           
+                 
+                <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
+                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/21.jpg' >
+                    <h5>THU THIEM VILLA</h5>
+                    <p>SINGLE VILLA 20X25<br>
+                        LOCAL: DONG NAI<br>
+                     ARCHITECTURE STYLE: MODERN<br>
+                     </p></a>
+                    new projects
+                </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
                     <a  href="./hungphuong.html">    <img id='img' src='./HINH WEB/HUNG PHUONG CASA/00BIA.jpg' >
                     <h5>HUNG PHUONG CASA</h5>
@@ -170,6 +181,16 @@
           </div>
           <div id="All" class="tabcontent">
             <div class="noidungwork">
+                
+                <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
+                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/21.jpg' >
+                    <h5>New projects</h5>
+                    <p>SINGLE VILLA 20X25<br>
+                        LOCAL: DONG NAI<br>
+                     ARCHITECTURE STYLE: MODERN<br>
+                     </p></a>
+                    new projects
+                </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
                     <a  href="./hungphuong.html">    <img id='img' src='./HINH WEB/HUNG PHUONG CASA/00BIA.jpg' >
                     <h5>HUNG PHUONG CASA</h5>
@@ -403,12 +424,12 @@ document.onmousedown=killCopy
 document.onclick=reEnable
 }
 </script>
-<script language="JavaScript">
+<!-- <script language="JavaScript">
     window.onload = function() {
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
         }, false);
-        document.addEventListener("keydown", function(e) {
+        document.addEventListener("keydown", function(e) { -->
             //document.onkeydown = function(e) {
             // "I" key
             if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {

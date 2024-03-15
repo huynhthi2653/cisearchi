@@ -158,6 +158,9 @@ section
     margin-top: 40px;
 }
 
+p{
+    margin-top: 20px;
+  }
 .gallery{
     display: inline-block;
     justify-content: space-between;
@@ -325,6 +328,9 @@ section
         
         
     } 
+    p{
+        margin-top: 4px;
+      }
     header .back{
         position: relative;
         display: inline-block;
@@ -344,7 +350,7 @@ section
 .title
 {
     font-size: 8px;
-    margin-bottom:10px;
+    margin-bottom:7px;
 }
 .contentBx{
     text-align: justify;
@@ -356,7 +362,7 @@ section
     min-width: 50%;
 }
 .w50 img{
-    margin-top:10px;
+    /* margin-top:10px; */
     border-radius:  8px ;
 
     
