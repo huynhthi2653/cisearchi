@@ -28,7 +28,7 @@
         a:hover{cursor:url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;}
     </style>
      <header>
-        <a href="#" class="logo"><img src="/logo1.png" style="width: 250px; " alt=""></a>
+        <a href="#" class="logo"><img src="/logo1.png" class="imgtest"  alt=""></a>
         <div class="menubar">
             <a class="back1"  href="./vungtau.html"><ion-icon name="caret-back-outline"></ion-icon></a>
             <a class="back1" href="./buonmethuoc.html"><ion-icon name="caret-forward-outline"></ion-icon></a>
@@ -85,20 +85,187 @@
                         <img src="./HINH WEB/AQUA SMART VILLA/4.webp" alt="">
                       </div>
             </div>  
-            <div class="table_on_top">
-                <ul>
-                    <li class="tooltip">
-                        <a href="tel:0903035290" rel="nofollow"><img src="./tableontop/zalo.png" width="100%" alt=""></a>
-                    </li>
-                    <li class="tooltip">
-                        <a href="https://www.facebook.com/profile.php?id=61552331663058&locale=vi_VN"><img src="./tableontop/face.png" width="100%" alt=""></a>
-                    </li>
-                    <li class="tooltip">
-                        <a style="border: 3px solid #fff;" href="https://www.tiktok.com/@cise_architects?_t=8oJydrzSLuU&_r=1" rel="nofollow"><img src="./tableontop/tiktok.png" width="100%"  alt=""></a>
-                    </li>
+            <style>
+                .contact-menune {
+                     display: inline-block;
+                     position: fixed;
+                     bottom: 80px !important;
+                     right: 10px !important;
+                     z-index: 99999 !important;
+                                transition: transform 0.3s ease; /* Thêm transition để tạo hiệu ứng di chuyển */
+            
+                 }
+                 .contact-buttonne {
+                     background-color: white;
+                     border: 2px solid #111;
+                     color: #111;
+                     padding: 6px 17px;
+                     font-size: 16px;
+                     border-radius: 50px;
+                     cursor: pointer;
+                     display: flex;
+            
+                     align-items: center;
+                     gap: 10px;
+                     font-weight: bold;
+                     transition: background-color 0.3s ease, color 0.3s ease;
+                 }
+                 .contact-buttonne span {
+                     width: 30px;
+                     height: 30px;
+                     background-color: #111;
+                     border-radius: 50%;
+                     display: flex;
+                                   border: 1px solid #fff;
+            
+                     align-items: center;
+                     justify-content: center;
+                     color: white;
+                     transition: background-color 0.3s ease;
+                 }
+                 .contact-buttonne span svg {
+                     width: 17px;
+                     height: 17px;
+                     fill: white;
+                     transition: transform 0.3s ease;
+                 }
+            a#top-link {
+                margin-right: 75px;
+            }
+                 .contact-buttonne:hover {
+                     background-color: #111;
+                     color: white;
+                     border: 2px solid #fff;
+                 }
+                 .contact-dropdownne {
+                     display: flex;
+                     flex-direction: column;
+                     position: absolute;
+                     top: 97%;  
+                     left: 73%;
+                     border: 1px solid #111;
+                     transform: translateX(-50%) translateY(-10px);
+                     background-color: white;
+                     min-width: 50px;
+                     box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+                     border-radius: 8px;
+                     overflow: hidden;
+                     z-index: 1000;
+                     opacity: 0;
+                     visibility: hidden;
+                                 transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm transition cho opacity và transform */
+            
+                 }
+                 .contact-dropdownne a {
+                     color: #111;
+                     padding: 7px;
+                     text-decoration: none;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     opacity: 0;
+                     transform: translateY(-10px);
+                     transition: opacity 0.3s ease, transform 0.3s ease;
+                 }
+                 .contact-dropdownne a img {
+                     width: 35px;
+                     height: 35px;
+                 }
+                 .contact-dropdownne a:hover {
+                     background-color: #111;
+                 }
+                 .contact-menune .active {
+                     opacity: 1;
+                     transform: translateX(-50%) translateY(0);
+                     visibility: visible;
+                 }
+                 .contact-menune .active a {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+                 .active a:nth-child(1) { transition-delay: 0.1s; }
+                 .active a:nth-child(2) { transition-delay: 0.2s; }
+                 .active a:nth-child(3) { transition-delay: 0.3s; }
+                 @media (max-width: 600px) {
+                         .contact-menune {
+                        transition: transform 0.3s ease;
+                    }
+                    .contact-menune.active {
+                        transform: translateY(-65px); /* Đẩy container xuống từ từ khi mở dropdown trên màn hình nhỏ */
+                    }
+                     .contact-buttonne {
+            font-size: 14px;
+                             gap: 4px;
+                    padding: 3px 8px;
+                     }
+                     .contact-dropdownne {
+                    min-width: 37px;       
+                     }
+                .contact-dropdownne a img {
+                width: 25px;
+                height: 25px;
+            }
+            .contact-buttonne span {
+            width: 25px;
+            height: 25px;
+        }
+                     .contact-dropdownne a {
+                padding: 3px;
+             
+            }
+                a#top-link {
+                    margin-right: 47px;
+                }
+                     .contact-menune {
+                bottom: 50px !important;
+                         right: 3px !important;
+            }
+                 }
+             </style>
         
-                </ul>
-            </div>  
+            <script>
+            function toggleDropdown() {
+                var menu = document.getElementById("contactDropdown");
+                var container = document.querySelector(".contact-menune");
+                var isMobile = window.innerWidth <= 768; // Kiểm tra nếu màn hình nhỏ hơn hoặc bằng 768px
+            
+                if (menu.classList.contains("active")) {
+                    menu.classList.remove("active");
+                    container.style.transform = "translateY(0)"; // Quay về vị trí ban đầu
+                } else {
+                    menu.classList.add("active");
+                    container.style.transform = isMobile ? "translateY(-55px)" : "translateY(-105px)"; // Điều chỉnh theo màn hình
+                }
+            }
+            
+            // Sự kiện đóng dropdown khi click ra ngoài
+            window.onclick = function(event) {
+                if (!event.target.closest('.contact-menune')) {
+                    document.getElementById("contactDropdown").classList.remove("active");
+                    document.querySelector(".contact-menune").style.transform = "translateY(0)";
+                }
+            };
+            </script>
+             <div class="contact-menune">
+                 <button class="contact-buttonne" onclick="toggleDropdown()">Liên hệ 
+                     <span>
+                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024">
+                             <path fill="currentColor" d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2L227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7"/>
+                         </svg>
+                     </span>
+                 </button>
+                 <div class="contact-dropdownne" id="contactDropdown">
+                     <a href="tel:0903035290" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Phone_icon.png" alt="Call" style="background-color: #fff; border-radius: 100%;">
+                     </a>
+                     <a href="https://zalo.me" target="_blank">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+                     </a>
+                     <a href="https://www.facebook.com/cise.architects" target="_blank">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                     </a>
+                 </div>
+             </div>
            </div>
            <footer style="text-align: center; background-color: #111; color: #fff;">
             <p>

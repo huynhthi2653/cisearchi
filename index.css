@@ -89,95 +89,141 @@ section
     color: #2196f3;
     color: #2196f3;
 }
-/* border auto */
+@keyframes borderExpandTopLeft {
+    0% {
+        width: 2.5px;
+        height: 2.5px;
+    }
+    50% {
+        width: 100%;
+        height: 2.5px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes borderExpandBottomRight {
+    0% {
+        width: 2.5px;
+        height: 2.5px;
+    }
+    50% {
+        height: 100%;
+        width: 2.5px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .btn {
     cursor: pointer;
     position: relative;
-    padding: 5px 10px;
+    padding: 10px 20px;
     background: transparent;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     transition: all 1s;
-    }
-    .btn:after, .btn:before {
-    content: " ";
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+}
+
+.btn:after, .btn:before {
+    content: "";
     width: 2.5px;
     height: 2.5px;
     position: absolute;
-    border: 0px solid #fff;
     transition: all 1s;
-    }
-    .btn:after {
-    top: 0px;
-    left: 0px;
+}
+
+.btn:after {
+    top: 0;
+    left: 0;
     border-top: 2.5px solid #fff;
     border-left: 2.5px solid #fff;
-    }
-    .btn:before {
-    bottom: 2px;
-    right: 2px;
+    animation: borderExpandTopLeft 2s infinite alternate ease-in-out;
+}
+
+.btn:before {
+    bottom: 0;
+    right: 0;
     border-bottom: 2.5px solid #fff;
     border-right: 2.5px solid #fff;
-    }
-    .btn:hover {
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    }
-    .btn:hover:before, .btn:hover:after {
-    width: 100%;
-    height: 100%;
-    }
+    animation: borderExpandBottomRight 2s infinite alternate ease-in-out;
+    animation-delay: 1s; /* Delay để tạo hiệu ứng chạy đuổi */
+}
 
-    .dropbtn {
-        background-color: #2196f3;
-        width:150px;
-    height: 40px;
-    font-size: 25px;
-    border: none;
+
+    /* Nút dropdown */
+.dropbtn {
+    background-color: #2196f3;
+    width: 160px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 6px;
     color: #fff;
-     margin-left: 20px;
-     cursor: pointer;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
-    .dropbtn:hover{
-        border: 2px solid #2196f3;
+
+/* Hover vào nút dropdown */
+.dropbtn:hover {
+    border: 2px solid #2196f3;
     background-color: white;
     color: #2196f3;
-    }
-    .dropbtn:hover{
-        border: 2px solid #2196f3;
-    background-color: white;
-    color: #2196f3;
-    }
-    /* drop content */
+}
+
+/* Dropdown container */
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
+/* Nội dung dropdown */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color:#fff;
-  color: #111;
-  min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin-left: 20px;
-  margin-top: 0px;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Mục trong dropdown */
 .dropdown-content a {
-color: #111;
-  padding: 16px 16px;
-  text-decoration: none;
-  display: block;
+    color: #111;
+    padding: 12px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
 }
 
-.dropdown-content a:hover {background-color: #2196f3;
-  color:black;
+/* Hover vào mục dropdown */
+.dropdown-content a:hover {
+    background-color: #2196f3;
+    color: white;
+    transform: scale(1.05);
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+/* Hiển thị dropdown khi hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 #home{
     width: 100%;
@@ -206,11 +252,11 @@ header nav{
     align-items: center;
     left: 0;
     right: 0;
-    width: 420px;
+    width: 500px;
     z-index: 100;
     top: 130px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(356deg, rgb(59 91 251 / 31%) 0%, rgba(36, 112, 241, 0.918732458803834) 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(5px);
@@ -219,6 +265,7 @@ header nav{
     transition: 1s all cubic-bezier(0.080, 0.82, 0.18, 1) 0.2s;
 
 }
+
 header nav a{
     color: #fff;
     text-decoration: none;
@@ -230,10 +277,10 @@ header nav a{
 }
 
 header nav a:hover{
-    color: #2196f3;
+    color: #111;
 }
 header nav button{
-    background: url(./favicon2.png) no-repeat center center/cover;
+    background: url(./logo1234.jpg) no-repeat center center/cover;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 60px;
     height: 60px;
@@ -457,10 +504,12 @@ header.sticky nav a{
     letter-spacing:5mm;
 
 }
-#about{
- 
-    
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+
 .content2
 {
     display: flex;
@@ -514,6 +563,14 @@ header.sticky nav a{
     color: #2196f3;
 }
 
+.project .content .workBx img,
+.project #contentt .workBx img,
+.project .noidungwork .workBx img {
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+    height: 300px; /* Cố định chiều cao */
+    object-fit: cover; /* Giữ tỷ lệ ảnh, cắt phần dư để vừa khung */
+}
+
 .project #content{
     display: flex;
 }
@@ -551,90 +608,128 @@ header.sticky nav a{
 .project .content .workBx img{
     max-width: 100%;
 }
-.contact
-{
-    background: #111;
-
-}
-.contentBx{
-    line-height: 26px;
+.about-us-letter {
+    max-width: 1250px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fdfaf6;
+    border: 2px solid #bfa58a;
+    border-radius: 15px;
+    font-family: 'Georgia', serif;
+    color: #5a4a42;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
-    /* text-align: justify; */
-}
-
-
-.formBx{
-    min-width: 60%;
-}
-
-.contactInfo h3{
-    color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom :10px;
-}
-.formBx h3{
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    border-bottom: 1px solid #716e6e;
-    padding: 0 0 5px 0;
-    margin: 0 0 10px 0;
-    line-height: 25px;
-    display: inline-block;
-}
-.formBx .map{
-    margin-top: 17px;
-}
-.contactInfo
-{
-    min-width: 40%;
-}
-.contactInfoBx{
     position: relative;
-}
-.contactInfoBx .box{
-    position: relative;
-    padding: 20px 0;
+    padding-top: 60px;
+  }
+
+  .letter-container {
+    text-align: left;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+  }
+
+  .letter-header {
     display: flex;
-}
-.contactInfo .skill{
-        font-size: 20px;
-        font-weight: 700;
-        color: #fff;
-        border-bottom: 1px solid #716e6e;
-        padding: 0 0 5px 0;
-        margin: 0 0 10px 0;
-        line-height: 25px;
-        display: inline-block;
-}
-.contactInfo .box .icon{
-    min-width: 40px;
-    padding-top: 0px;
-    display: flex;
-    align-items: flex-start;
-    font-size: 24px;
-    color: #fff;
-}
-.contactInfo .box .text{
-    display: flex;
-    margin-left: 20px;
-    font-size: 16px;
-    color: #fff;
     flex-direction: column;
-    font-weight: 300;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .company-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #3e322c;
+  }
+
+  .greeting {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .about-us-letter p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+
+  .closing {
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: right;
+  }
+.contact {
+    padding: 100px  10% 100px 100px ;
+    background: #f9f9f9;
 }
-.contactInfo .box .text h3
-{
-    font-weight: 500;
-    color: #2196f3;
-    margin-bottom: 0;
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.contactInfo .box .text a{
+.contact-info, .map-container {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+}
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.info-box .box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.icon {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.icon i {
+    font-size: 18px;
+}
+.text h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+.text p, .text a {
+    margin: 5px 0 0;
+    color: #555;
     text-decoration: none;
 }
-.table_on_top{
+.map iframe {
+    width: 100%;
+    height: 320px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* .table_on_top{
     position: fixed;
     z-index: 999;
     right: 40px;
@@ -670,7 +765,6 @@ header.sticky nav a{
     border-radius: 6px;
     padding: 1px 0;
     
-    /* Position the tooltip */
     position: absolute;
     z-index: 1;
     top: 10px;
@@ -682,7 +776,7 @@ header.sticky nav a{
 }
 .tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+  } */
 /*Responsive*/
 
 /* iphonexr */
@@ -793,6 +887,7 @@ header.sticky nav a{
         border-radius: 60px;
     
     }
+    
 
 }
 @media screen and (max-width: 520px) {
@@ -1093,11 +1188,22 @@ header.sticky nav a{
         margin-top: 20px;
         margin-left: 1%;
     }
+    .about-us-letter p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+    .company-name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #3e322c;
+    }
+ 
 }
-.map iframe{
-    padding-right: 10px;
-    width: 80%;
-}
+
 .project .contentn .workBxx{
     width: 50%;
 }

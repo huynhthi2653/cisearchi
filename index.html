@@ -44,12 +44,13 @@
 </script> -->
 <body>
     <header>
-        <img src="./favicon2.png" style="border-radius: 100px; border: 3px solid rgba(255, 255, 255, 0.3);" id="logo" alt="">
+        <img src="./logo1234.jpg" style="border-radius: 100px; border: 3px solid rgba(255, 255, 255, 0.3);" id="logo" alt="">
         <nav>
             <a href="#home">Home</a>
             <a href="#project"> Projects</a>
             <a href="#about">About</a>
             <a href="#contact">Contacts</a>
+            <!-- <a href="https://cisehouse.com/">Cise House</a> -->
             <button id="menu">
                 <!-- <span></span>
                 <span></span> -->
@@ -62,7 +63,8 @@
         <div class="textBx" >
             <div class="btn">
             <h2>Welcome <br><span>we're</span></h2>
-            <h3>CISẺ ARCHITECTS</h3> </div>
+            <h3>CISẺ ARCHITECTS</h3>
+             </div>
             <a href="#project" class="btnclass">Projects</a>
         </div>
         <video autoplay muted loop id="background-video">
@@ -87,32 +89,137 @@
     object-fit: cover;
     z-index: -1;
 }
+.textBx {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.textBx.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hiệu ứng từng mục */
+.btn h2,
+.btn h2 span,
+.btn h3,
+.btnclass {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.textBx.active .btn h2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.textBx.active .btn h2 span {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.textBx.active .btn h3 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.textBx.active .btnclass {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+}
 
 
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const textBox = document.querySelector(".textBx");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                textBox.classList.add("active");
+            } else {
+                textBox.classList.remove("active"); // Chạy lại hiệu ứng khi cuộn lên
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(textBox);
+});
+
+    </script>
     <div id="container">
     <section class="project" id="project">
-        <div class="heading">
+        <!-- <div class="heading">
             <h2>Projects</h2>
+        </div> -->
+        <div class="heading">
+            <h2 id="typewriter"></h2>
         </div>
-    
+   
+        <script>
+document.addEventListener("DOMContentLoaded", function () {
+    let text = "Projects";
+    let element = document.getElementById("typewriter");
+    let speed = 250; // Tốc độ gõ chậm hơn (ms)
+
+    function typeEffect(index) {
+        if (index < text.length) {
+            let span = document.createElement("span");
+            span.innerText = text[index];
+            span.classList.add("fade");
+            element.appendChild(span);
+
+            // Tạo hiệu ứng hiện chữ
+            setTimeout(() => {
+                span.style.opacity = 1;
+                span.style.transform = "translateY(0)";
+            }, 100);
+
+            setTimeout(() => typeEffect(index + 1), speed);
+        }
+    }
+
+    typeEffect(0);
+});
+
+
+
+        </script>
         <div class="tab">
             <div class="dropdown">
                <button class="dropbtn"> <p>Categories</p> </button>
                 <div class="dropdown-content">
                   <a class="tablinks" onclick="openCity(event, 'All')" id="defaultOpen">All Projects</a>
                     <a class="tablinks" onclick="openCity(event, 'New')">New Projects</a>
-                  <!-- <a class="tablinks" onclick="openCity(event, 'Paris')">Loai 1</a>
-                  <a class="tablinks" onclick="openCity(event, 'Tokyo')">Loai 2</a> -->
+               
                 </div>
               </div>
           </div>
+          
+             <!-- <a class="tablinks" onclick="openCity(event, 'Paris')">Loai 1</a>
+                  <a class="tablinks" onclick="openCity(event, 'Tokyo')">Loai 2</a> -->
           <div id="New" class="tabcontent">
             <div class="noidungwork">
                 
                 <p>
+                    <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
+                        <a  href="./thuathienfarm.html">    <img id='img' src='./HINH WEB/thuathienfarm/BIA00.jpg' >
+                        <h5>THUA THIEN FARM</h5>
+                        <p>SINGLE VILLA 3000m²<br>
+                            LOCAL: HUE<br>
+                         ARCHITECTURE STYLE: MODERN<br>
+                         </p></a>
+                         THUA THIEN FARM
+                    </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/30.1.jpg' >
+                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/32.jpg' >
                     <h5>THU THIEM VILLA</h5>
                     <p>SINGLE VILLA 20X25<br>
                         LOCAL: DONG NAI<br>
@@ -130,7 +237,7 @@
                      HUNG PHUONG CASA
                 </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./hue.html"> <img id='img' src='./HINH WEB/HUE RESIDENT/00BIA.webp' >
+                    <a  href="./hue.html"> <img id='img' src='./HINH WEB/HUE RESIDENT/6.jpg' >
                         <h5>HUE RESIDENT</h5>
                         <p>SINGLE VILLA 20X25<br>
                             LOCAL: DONG NAI<br>
@@ -138,23 +245,23 @@
                         </p> </a>
                         HUE RESIDENT
                     </div>
-                    <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                        <a  href="./buonmethuoc.html"> <img id='img' src='./HINH WEB/BUON ME THUOC MANSION/00BIA1.jpg' >
-                        <h5>BUON ME THUOC MANSION</h5>
+                    <!--<div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >-->
+                    <!--    <a  href="./buonmethuoc.html"> <img id='img' src='./HINH WEB/BUON ME THUOC MANSION/00BIA1.jpg' >-->
+                    <!--    <h5>BUON ME THUOC MANSION</h5>-->
                        
-                        <p>SINGGLE VILLA 1000M²<BR>
-                            LOCAL: DONG NAI<BR>
-                            ARCHITECTURE STYLE: MODERN</p></a>
-                            BUON ME THUOC MANSION
-                    </div>
+                    <!--    <p>SINGGLE VILLA 1000M²<BR>-->
+                    <!--        LOCAL: DONG NAI<BR>-->
+                    <!--        ARCHITECTURE STYLE: MODERN</p></a>-->
+                    <!--        BUON ME THUOC MANSION-->
+                    <!--</div>-->
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./gardenvilla3a.html">  <img id='img' src='./HINH WEB/villa 3A/00BIA.jpg '  >
-                    <h5>GARDEN VILLA 3A</h5>
+                    <a  href="./countrysidehouse.html">  <img id='img' src='./HINH WEB/villa 3A/00BIA.jpg '  >
+                    <h5>COUNTRY SIDE HOUSE</h5>
                
                     <p>SINGGLE VILLA 1000M²<BR>
                         LOCAL: DONG NAI<BR>
                         ARCHITECTURE STYLE: MODERN</p></a>
-                        GARDEN VILLA 3A
+                        COUNTRY SIDE HOUSE
                 </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
                     <a  href="./aquahouse.html">  <img id='img' src='./HINH WEB/AQUA SMART VILLA/00BIA.webp'>
@@ -182,9 +289,17 @@
           </div>
           <div id="All" class="tabcontent">
             <div class="noidungwork">
-                
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/30.1.jpg' >
+                    <a  href="./thuathienfarm.html">    <img id='img' src='./HINH WEB/thuathienfarm/BIA00.jpg' >
+                    <h5>THUA THIEN FARM</h5>
+                    <p>SINGLE VILLA 3000m²<br>
+                        LOCAL: HUE<br>
+                     ARCHITECTURE STYLE: MODERN<br>
+                     </p></a>
+                     THUA THIEN FARM
+                </div>
+                <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
+                    <a  href="./newduan.html">    <img id='img' src='./HINH WEB/new projects/32.jpg' >
                     <h5>THU THIEM VILLA</h5>
                     <p>SINGLE VILLA 20X25<br>
                         LOCAL: DONG NAI<br>
@@ -202,7 +317,7 @@
                      HUNG PHUONG CASA
                 </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./hue.html"> <img id='img' src='./HINH WEB/HUE RESIDENT/00BIA.webp' >
+                    <a  href="./hue.html"> <img id='img' src='./HINH WEB/HUE RESIDENT/6.jpg' >
                         <h5>HUE RESIDENT</h5>
                     <p>SINGLE VILLA 20X25<br>
                         LOCAL: DONG NAI<br>
@@ -210,24 +325,15 @@
                      </p> </a>
                      HUE RESIDENT
                 </div>
-                <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./buonmethuoc.html"> <img id='img' src='./HINH WEB/BUON ME THUOC MANSION/00BIA1.jpg'>
-                    <h5>BUON ME THUOC MANSION</h5>
-                   
-                    <p>SINGGLE VILLA 1000M²<BR>
-                        LOCAL: DONG NAI<BR>
-                        ARCHITECTURE STYLE: MODERN</p></a>
-                        BUON ME THUOC MANSION
-                </div>
                
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
-                    <a  href="./gardenvilla3a.html">  <img id='img' src='./HINH WEB/villa 3A/00BIA.jpg' >
-                    <h5>GARDEN VILLA 3A</h5>
+                    <a  href="./countrysidehouse.html">  <img id='img' src='./HINH WEB/villa 3A/00BIA.jpg' >
+                    <h5>COUNTRY SIDE HOUSE</h5>
                
                     <p>SINGGLE VILLA 1000M²<BR>
                         LOCAL: DONG NAI<BR>
                         ARCHITECTURE STYLE: MODERN</p></a>
-                        GARDEN VILLA 3A
+                        COUNTRY SIDE HOUSE
                 </div>
                 <div class='workBx'data-aos="zoom-in-up" data-aos-duration="5" >
                     <a  href="./aquahouse.html">  <img id='img' src='./HINH WEB/AQUA SMART VILLA/00BIA.webp'>
@@ -295,82 +401,187 @@
           
    
         </div>
-          <!-- <div class="heading">
-            <button id="tieptheoo" onclick="tieptheo(), xoa1()">View More</button>
-        </div> -->
-        <!-- <div id="contentt"></div> -->
 
     </section>
     </div>
-    <div id="container">
-    <section class="about" id="about">
-        <div class="heading">
-            <h2>About Our</h2>
-        </div>
-            <div class="content">
-            <div class="contentBx" >
-                <h3>Introducing CISẺ ARCHITECTS - Shaping New Perspectives in Architecture</h3>
-                <p>CISẺ ARCHITECTS, a recently founded architectural firm, is dedicated to transforming ideas into captivating spaces. <br> With a fresh and innovative approach, we create designs that blend aesthetics, functionality, and sustainability, br bringing unique visions to life.</p>
-                <p>We're driven by a passion for pushing boundaries and embracing cutting-edge technologies. At CISẺ ARCHITECTS, we're not just constructing buildings <br> we're crafting experiences that leave a lasting impact on the world around us.</p>
-                <p>Discover the future of architecture with CISẺ ARCHITECTS. Contact us to embark on an exciting journey of design and innovation today.</p>
-                <button id="khung"><a href="#contact" onclick="togglemenu()">Contact</a></button>
+
+    <section class="about-us-letter" id="about">
+        <div class="letter-container">
+            <div class="letter-header">
+                <img src="https://cisearchi.com/favicon.ico" alt="CISẺ ARCHITECTS Logo" class="logo">
+                <h2 class="company-name">CISẺ ARCHITECTS</h2>
             </div>
-
-          
+            <p class="greeting">Dear Visionaries,</p>
+            
+            <p><strong>CISẺ ARCHITECTS</strong> is more than just an architectural firm; we are dreamers, innovators, and creators dedicated to shaping extraordinary spaces. With a fresh perspective and a commitment to aesthetics, functionality, and sustainability, we bring unique visions to life.</p>
+            
+            <p>Our passion lies in pushing boundaries and embracing cutting-edge technologies. At <strong>CISẺ ARCHITECTS</strong>, we do not merely construct buildings; we craft experiences that leave a lasting imprint on the world around us.</p>
+            
+            <p>We invite you to be part of this journey, exploring the future of architecture together. Let’s create something remarkable.</p>
+            
+            <p class="closing">Sincerely,<br><strong>The CISẺ ARCHITECTS Team</strong></p>
+        </div>
+        
+        <div class="heading">
+            <h2 style="font-size: 40px;">About Us</h2>
         </div>
     </section>
-    </div>
 
-<div id="container">
+    
+    <style>
+        .about-us-letter, .letter-container p, .heading h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Khi có class 'active', phần tử xuất hiện */
+.about-us-letter.active, 
+.letter-container p.active, 
+.heading h2.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hiệu ứng từng đoạn xuất hiện chậm */
+.letter-container p:nth-child(2) { transition-delay: 0.3s; }
+.letter-container p:nth-child(3) { transition-delay: 0.6s; }
+.letter-container p:nth-child(4) { transition-delay: 0.9s; }
+.letter-container p:nth-child(5) { transition-delay: 1.2s; }
+.letter-container p:nth-child(6) { transition-delay: 1.5s; }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".about-us-letter, .letter-container p, .heading h2");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            } else {
+                entry.target.classList.remove("active"); // Loại bỏ khi rời khỏi màn hình
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(element => observer.observe(element));
+});
+
+    </script>
+
     <section class="contact" id="contact">
-  
-        <div class="content2">
-            <div class="contactInfo">
-                <h3 class="skill">Contact Us</h3>
-                <div class="contactInfoBx">
+        <div class="content-wrapper">
+            <div class="contact-info">
+                <h3 class="section-title">Contact Us</h3>
+                <div class="info-box">
                     <div class="box">
-                        <div class="icon">
-                            <i class="fa fa-map-marker"></i>
-                        </div>
+                        <div class="icon"><i class="fa fa-map-marker"></i></div>
                         <div class="text">
-                            <h3>Address</h3>
-                            <p>TP Ho Chi Minh<br>149/23 Nguyễn Duy Cung <br> Phường 12 ,Quận gò gấp<br> Viet Nam</p>
+                            <h4>Address</h4>
+                            <p>TP Hồ Chí Minh<br>Số 11, Đường số 5, Khu dân cư Cityland<br>Phường 10, Quận Gò Vấp, Việt Nam</p>
                         </div>
                     </div>
                     <div class="box">
-                        <div class="icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
+                        <div class="icon"><i class="fa fa-phone"></i></div>
                         <div class="text">
-                            <h3>Phone</h3>
-                            <a href="tel:0903035290" rel="nofollow">(+84) 0903035290</a>
+                            <h4>Phone</h4>
+                            <a href="tel:0903035290" rel="nofollow">(+84) 0903 035 290</a>
                         </div>
                     </div>
                     <div class="box">
-                        <div class="icon">
-                            <i class="fa fa-envelope-o"></i>
-                        </div>
+                        <div class="icon"><i class="fa fa-envelope"></i></div>
                         <div class="text">
-                            <h3>Email</h3>
+                            <h4>Email</h4>
                             <a href="mailto:phiviet.trannguyen@gmail.com?subject=Feedback&body=Message">phiviet.trannguyen@gmail.com</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="formBx">
-                
-
-                    <h3>Location Map</h3>
-            <div class="map" id="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31349.177068373112!2d106.63056034073958!3d10.838292860721086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752977e9ad4953%3A0x108b14155073da00!2zMTQ5LCAyMyBOZ3V54buFbiBEdXkgQ3VuZywgUGjGsOG7nW5nIDEyLCBHw7IgVuG6pXAsIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2sus!4v1662532895155!5m2!1svi!2sus" width="700" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-container">
+                <h3 class="section-title">Location Map</h3>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6973402596686!2d106.66634047480568!3d10.83445788931785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529a9dfff9209%3A0xadb951273a39202d!2zMTEgxJDGsOG7nW5nIFPhu5EgNSwgUGjGsOG7nW5nIDEwLCBHw7IgVuG6pXAsIEjhu5MgQ2jDrCBNaW5oIDcxODUwMiwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1741938986960!5m2!1svi!2s" width="100%" height="320" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </div>
+        <footer>
+            <p style="text-align: center; background-color: #fff; font-size: 15px;">   © All Rights Reserved - Laboratory for Explorative Architecture & Design Ltd. (CISER)</p>
+        </footer>
     </section>
-</div>
-    <footer>
-        <p style="text-align: center; background-color: #fff; font-size: 15px;">   © All Rights Reserved - Laboratory for Explorative Architecture & Design Ltd. (CISER)</p>
-    </footer>
-    <div class="table_on_top">
+ <style>
+    .contact {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hiệu ứng từng phần tử xuất hiện chậm */
+.contact-info, .map-container {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.contact-info.active, .map-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-box .box {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.info-box .box:nth-child(1) { transition-delay: 0.3s; }
+.info-box .box:nth-child(2) { transition-delay: 0.6s; }
+.info-box .box:nth-child(3) { transition-delay: 0.9s; }
+
+.info-box .box.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.map-container iframe {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.map-container.active iframe {
+    opacity: 1;
+    transform: scale(1);
+}
+
+ </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const contactSection = document.querySelector(".contact");
+    const elements = document.querySelectorAll(".contact-info, .map-container, .info-box .box");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            } else {
+                entry.target.classList.remove("active"); // Loại bỏ để chạy lại khi cuộn lên
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(contactSection);
+    elements.forEach(element => observer.observe(element));
+});
+
+    </script>
+   
+    <!-- <div class="table_on_top">
         <ul>
             <li class="tooltip">
                 <a href="tel:0903035290" rel="nofollow"><img src="./tableontop/zalo.png" width="100%" alt=""></a>
@@ -383,8 +594,188 @@
             </li>
 
         </ul>
-    </div>  
+    </div>   -->
+    <style>
+        .contact-menune {
+             display: inline-block;
+             position: fixed;
+             bottom: 80px !important;
+             right: 10px !important;
+             z-index: 99999 !important;
+                        transition: transform 0.3s ease; /* Thêm transition để tạo hiệu ứng di chuyển */
     
+         }
+         .contact-buttonne {
+             background-color: white;
+             border: 2px solid #111;
+             color: #111;
+             padding: 6px 17px;
+             font-size: 16px;
+             border-radius: 50px;
+             cursor: pointer;
+             display: flex;
+    
+             align-items: center;
+             gap: 10px;
+             font-weight: bold;
+             transition: background-color 0.3s ease, color 0.3s ease;
+         }
+         .contact-buttonne span {
+             width: 30px;
+             height: 30px;
+             background-color: #111;
+             border-radius: 50%;
+             display: flex;
+                           border: 1px solid #fff;
+    
+             align-items: center;
+             justify-content: center;
+             color: white;
+             transition: background-color 0.3s ease;
+         }
+         .contact-buttonne span svg {
+             width: 17px;
+             height: 17px;
+             fill: white;
+             transition: transform 0.3s ease;
+         }
+    a#top-link {
+        margin-right: 75px;
+    }
+         .contact-buttonne:hover {
+             background-color: #111;
+             color: white;
+             border: 2px solid #fff;
+         }
+         .contact-dropdownne {
+             display: flex;
+             flex-direction: column;
+             position: absolute;
+             top: 97%;  
+             left: 73%;
+             border: 1px solid #111;
+             transform: translateX(-50%) translateY(-10px);
+             background-color: white;
+             min-width: 50px;
+             box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+             border-radius: 8px;
+             overflow: hidden;
+             z-index: 1000;
+             opacity: 0;
+             visibility: hidden;
+                         transition: opacity 0.3s ease, transform 0.3s ease; /* Thêm transition cho opacity và transform */
+    
+         }
+         .contact-dropdownne a {
+             color: #111;
+             padding: 7px;
+             text-decoration: none;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             opacity: 0;
+             transform: translateY(-10px);
+             transition: opacity 0.3s ease, transform 0.3s ease;
+         }
+         .contact-dropdownne a img {
+             width: 35px;
+             height: 35px;
+         }
+         .contact-dropdownne a:hover {
+             background-color: #111;
+         }
+         .contact-menune .active {
+             opacity: 1;
+             transform: translateX(-50%) translateY(0);
+             visibility: visible;
+         }
+         .contact-menune .active a {
+             opacity: 1;
+             transform: translateY(0);
+         }
+         .active a:nth-child(1) { transition-delay: 0.1s; }
+         .active a:nth-child(2) { transition-delay: 0.2s; }
+         .active a:nth-child(3) { transition-delay: 0.3s; }
+         @media (max-width: 600px) {
+                 .contact-menune {
+                transition: transform 0.3s ease;
+            }
+            .contact-menune.active {
+                transform: translateY(-65px); /* Đẩy container xuống từ từ khi mở dropdown trên màn hình nhỏ */
+            }
+             .contact-buttonne {
+    font-size: 14px;
+                     gap: 4px;
+            padding: 3px 8px;
+             }
+             .contact-dropdownne {
+            min-width: 37px;       
+             }
+        .contact-dropdownne a img {
+        width: 25px;
+        height: 25px;
+    }
+    .contact-buttonne span {
+    width: 25px;
+    height: 25px;
+}
+             .contact-dropdownne a {
+        padding: 3px;
+     
+    }
+        a#top-link {
+            margin-right: 47px;
+        }
+             .contact-menune {
+        bottom: 50px !important;
+                 right: 3px !important;
+    }
+         }
+     </style>
+
+    <script>
+    function toggleDropdown() {
+        var menu = document.getElementById("contactDropdown");
+        var container = document.querySelector(".contact-menune");
+        var isMobile = window.innerWidth <= 768; // Kiểm tra nếu màn hình nhỏ hơn hoặc bằng 768px
+    
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            container.style.transform = "translateY(0)"; // Quay về vị trí ban đầu
+        } else {
+            menu.classList.add("active");
+            container.style.transform = isMobile ? "translateY(-55px)" : "translateY(-105px)"; // Điều chỉnh theo màn hình
+        }
+    }
+    
+    // Sự kiện đóng dropdown khi click ra ngoài
+    window.onclick = function(event) {
+        if (!event.target.closest('.contact-menune')) {
+            document.getElementById("contactDropdown").classList.remove("active");
+            document.querySelector(".contact-menune").style.transform = "translateY(0)";
+        }
+    };
+    </script>
+     <div class="contact-menune">
+         <button class="contact-buttonne" onclick="toggleDropdown()">Liên hệ 
+             <span>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024">
+                     <path fill="currentColor" d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2L227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7"/>
+                 </svg>
+             </span>
+         </button>
+         <div class="contact-dropdownne" id="contactDropdown">
+             <a href="tel:0903035290" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Phone_icon.png" alt="Call" style="background-color: #fff; border-radius: 100%;">
+             </a>
+             <a href="https://zalo.me" target="_blank">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+             </a>
+             <a href="https://www.facebook.com/cise.architects" target="_blank">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+             </a>
+         </div>
+     </div>
  
  <script type="text/javascript">
       function nocontext(e) {
